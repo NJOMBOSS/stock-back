@@ -1,8 +1,11 @@
 package com.stockback.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.stockback.entity.Categorie;
 import lombok.Builder;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Builder
@@ -14,10 +17,9 @@ public class CategorieDto {
 
   private String designation;
 
-  private Integer idEntreprise;
 
-/*  @JsonIgnore
-  private List<ArticleDto> articles;*/
+  @JsonIgnore
+  private List<ArticleDto> articles;
 
   public static CategorieDto fromEntity(Categorie category) {
     if (category == null) {
@@ -26,11 +28,10 @@ public class CategorieDto {
     }
 
     return CategorieDto.builder()
-        .id(category.getId())
-        .code(category.getCode())
-        .designation(category.getDesignation())
-        .idEntreprise(category.getIdEntreprise())
-        .build();
+            .id(category.getId())
+            .code(category.getCode())
+            .designation(category.getDesignation())
+            .build();
   }
 
   public static Categorie toEntity(CategorieDto categoryDto) {
@@ -43,7 +44,6 @@ public class CategorieDto {
     category.setId(categoryDto.getId());
     category.setCode(categoryDto.getCode());
     category.setDesignation(categoryDto.getDesignation());
-    category.setIdEntreprise(categoryDto.getIdEntreprise());
 
     return category;
   }

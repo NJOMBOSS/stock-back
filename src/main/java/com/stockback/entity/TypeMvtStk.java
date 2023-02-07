@@ -16,14 +16,6 @@ import java.time.Instant;
 @Table(name = "typemvtstk")
 public class TypeMvtStk extends AbstractEntity{
 
-    @ManyToOne
-    @JoinColumn(name = "idarticle")
-    private Article article;
-
-    @ManyToOne
-    @JoinColumn(name = "idmvtstk")
-    private MvtStock mvtStock;
-
     @Column(name = "datemvt")
     private Instant dateMvt;
 
@@ -33,6 +25,15 @@ public class TypeMvtStk extends AbstractEntity{
     @Column(name = "sourcemvt")
     @Enumerated(EnumType.STRING)
     private SourceMvtStk sourceMvt;
+
+    @ManyToOne
+    @JoinColumn(name = "idmvtstk")
+    private MvtStock mvtStock;
+
+    @ManyToOne
+    @JoinColumn(name = "idarticle")
+    private Article article;
+
     @ManyToOne(optional = false)
     private MvtStock mvtStocks;
 

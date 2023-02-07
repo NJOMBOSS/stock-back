@@ -19,6 +19,6 @@ public class MvtStock extends AbstractEntity{
     @Column(name = "libelle")
     private String liebelle;
 
-    @OneToMany(mappedBy = "mvtStocks")
+    @OneToMany(mappedBy = "mvtStock")
     private List<TypeMvtStk> typeMvtStks;
 }

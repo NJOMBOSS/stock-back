@@ -19,7 +19,6 @@ public class TypeCmdClient extends AbstractEntity{
     @ManyToOne
     @JoinColumn(name = "idarticle")
     private Article article;
-
     @ManyToOne
     @JoinColumn(name = "idcommandeclient")
     private CommandeClient commandeClient;
@@ -30,6 +29,4 @@ public class TypeCmdClient extends AbstractEntity{
     @Column(name = "prixunitaire")
     private BigDecimal prixUnitaire;
 
-    @Column(name = "identreprise")
-    private Integer idEntreprise;
 }

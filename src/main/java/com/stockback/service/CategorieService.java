@@ -3,20 +3,23 @@ package com.stockback.service;
 
 
 import com.stockback.dto.CategorieDto;
+import com.stockback.response.RestResponse;
 
-import java.util.List;
+import java.util.Optional;
 
 public interface CategorieService {
 
-  CategorieDto save(CategorieDto dto);
 
-  CategorieDto updateEntreprise(CategorieDto categorieDto, Long id);
-  CategorieDto findById(Integer id);
+  RestResponse getCategories(int pageNo, int pageSize, String sortBy, String sortDir);
+  CategorieDto addCategorie( CategorieDto categorieDto);
+  CategorieDto updateCategorie(CategorieDto categorieDto, Integer id);
+  Optional<CategorieDto>findById(Integer id);
 
-  CategorieDto findByCode(String code);
+  Optional<CategorieDto> findByCode(String code);
 
-  List<CategorieDto> findAll();
+  CategorieDto deleteCategorie(Integer id);
 
-  void delete(Integer id);
+
+
 
 }

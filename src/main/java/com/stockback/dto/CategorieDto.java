@@ -18,8 +18,8 @@ public class CategorieDto {
   private String designation;
 
 
-  @JsonIgnore
-  private List<ArticleDto> articles;
+/*  @JsonIgnore
+  private List<ArticleDto> articles;*/
 
   public static CategorieDto fromEntity(Categorie category) {
     if (category == null) {

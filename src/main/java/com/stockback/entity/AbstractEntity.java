@@ -1,5 +1,6 @@
 package com.stockback.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -13,6 +14,13 @@ import java.time.Instant;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public class AbstractEntity implements Serializable {
+  @Column(name = "supprime", nullable = false)
+  @JsonIgnore
+  public boolean isDeleted = false;
+
+  @Column(name = "actif", nullable = false)
+  @JsonIgnore
+  public boolean isEnabled = true;
 
   @Id
   @GeneratedValue
@@ -25,6 +33,5 @@ public class AbstractEntity implements Serializable {
   @LastModifiedDate
   @Column(name = "lastModifiedDate")
   private Instant lastModifiedDate;
-
 
 }
